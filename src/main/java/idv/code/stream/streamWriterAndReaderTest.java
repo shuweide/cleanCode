@@ -31,5 +31,10 @@ public class streamWriterAndReaderTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //test printWriter use standard output
+        try (PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream(FileDescriptor.out)))) {
+            writer.println("test standard output!!");
+        }
     }
 }
