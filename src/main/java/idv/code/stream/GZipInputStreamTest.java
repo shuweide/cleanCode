@@ -1,11 +1,15 @@
 package idv.code.stream;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.zip.GZIPInputStream;
 
 public class GZipInputStreamTest {
     public static void main(String[] args) {
-        byte[] bytes = new byte[]{33, 33, 44};
+
+        //Bytes String
+        String s = "1F8B";
+        byte[] bytes = new BigInteger(s,16).toByteArray();
         uncompressGZipToFile(bytes);
     }
 
