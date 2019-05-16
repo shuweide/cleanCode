@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Priority: FATAL > ERROR > WARN >INFO > DEBUG -->
+<Configuration monitorInterval="60">
+    <properties>
+        <property name="BASIC_PATTERN_LAYOUT">%d{HH:mm:ss,SSS} %-5p [%t] %c{2} %3x - %m%n</property>
+        <property name="LOG_KEEP_DAYS">2m</property>
+    </properties>
+    <Appenders>
+        <Console name="consoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${BASIC_PATTERN_LAYOUT}"/>
+        </Console>
+        <RollingRandomAccessFile name="fileAppender"
+                                 fileName="out/system-log4j2.log"
+                                 filePattern="out/system-log4j2-%d{yyyy-MM-dd-HH-mm}-%i.log.gz">
+            <PatternLayout pattern="${BASIC_PATTERN_LAYOUT}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="5 KB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="out/">
+                    <IfFileName glob="system-log4j2-*.log.gz"/>
+                    <IfLastModified age="${LOG_KEEP_DAYS}"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="idv.code.logging" level="INFO">
+            <AppenderRef ref="fileAppender"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="consoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
