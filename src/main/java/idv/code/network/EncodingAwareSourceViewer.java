@@ -16,7 +16,7 @@ public class EncodingAwareSourceViewer {
                 encoding = contentType.substring(encodingStart + 8);
             }
             InputStream in = new BufferedInputStream(uc.getInputStream());
-            Reader r = new InputStreamReader(in);
+            Reader r = new InputStreamReader(in, encoding);
             int c;
             while ((c = r.read()) != -1) {
                 System.out.print((char) c);
