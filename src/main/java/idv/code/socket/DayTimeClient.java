@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 public class DayTimeClient {
     public static void main(String[] args) {
-        String hostname = "time.nist.gov";
+        String hostname = "localhost";
         try (Socket socket = new Socket(hostname, 13)) {
             socket.setSoTimeout(15000);
             InputStream in = socket.getInputStream();
