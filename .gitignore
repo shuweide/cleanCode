@@ -4,3 +4,4 @@ out/
 .gradle/
 *.iml
 src/main/resources/chromedriver.exe
+file.bin

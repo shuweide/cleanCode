@@ -10,8 +10,8 @@ import java.io.FileOutputStream;
 public class HelloKryo {
     static public void main (String[] args) throws Exception {
         Kryo kryo = new Kryo();
+        kryo.setRegistrationRequired(false);
         kryo.register(SomeClass.class);
-        kryo.register(int[].class);
 
         SomeClass object = new SomeClass();
         object.value = "Hello Kryo!";
