@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
+import java.util.Objects;
 
 public class FirstSelenium {
     public static void main(String[] args) throws InterruptedException {
-
-        File file = new File(FirstSelenium.class.getClassLoader().getResource("chromedriver.exe").getFile());
+        File file = new File(Objects.requireNonNull(FirstSelenium.class.getClassLoader().getResource("chromedriver.exe")).getFile());
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         WebDriver driver = new ChromeDriver();
         driver.navigate().to("http://www.baidu.com");
