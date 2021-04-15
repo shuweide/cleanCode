@@ -1,6 +1,7 @@
 package idv.code.stream;
 
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.DigestInputStream;

@@ -1,6 +1,6 @@
 package idv.code.stream;
 
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
 
 public class InstanceCallbackDigestUserInterface {
     private String fileName;
